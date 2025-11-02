@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anass Bouabbous | Cybersecurity Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header/Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 255, 157, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .hero-content {
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #00ff9d 0%, #00b8ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #00ff9d;
+            margin-bottom: 20px;
+            animation: slideUp 0.8s ease-out 0.2s backwards;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-description {
+            max-width: 700px;
+            margin: 20px auto;
+            font-size: 1.1em;
+            color: #b0b0b0;
+            animation: fadeIn 1s ease-out 0.4s backwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            padding: 12px 30px;
+            background: rgba(0, 255, 157, 0.1);
+            border: 2px solid #00ff9d;
+            color: #00ff9d;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .contact-btn:hover {
+            background: #00ff9d;
+            color: #0a0e27;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 255, 157, 0.3);
+        }
+
+        /* Section Styling */
+        section {
+            margin: 100px 0;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #00ff9d;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00ff9d, transparent);
+        }
+
+        /* Project Cards */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: rgba(26, 31, 58, 0.6);
+            border: 1px solid rgba(0, 255, 157, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 157, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .project-card:hover::before {
+            left: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: #00ff9d;
+            box-shadow: 0 15px 40px rgba(0, 255, 157, 0.2);
+        }
+
+        .project-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .project-card h3 {
+            color: #00b8ff;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .project-card p {
+            color: #b0b0b0;
+            margin-bottom: 15px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            padding: 5px 15px;
+            background: rgba(0, 255, 157, 0.1);
+            border: 1px solid #00ff9d;
+            border-radius: 15px;
+            font-size: 0.85em;
+            color: #00ff9d;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: rgba(26, 31, 58, 0.6);
+            border: 1px solid rgba(0, 184, 255, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: #00b8ff;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 184, 255, 0.2);
+        }
+
+        .skill-category h3 {
+            color: #00b8ff;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .skill-item {
+            padding: 8px 0;
+            color: #e0e0e0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .skill-item:last-child {
+            border-bottom: none;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(26, 31, 58, 0.6);
+            border: 1px solid rgba(0, 255, 157, 0.2);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.1em;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(10, 14, 39, 0.8);
+            margin-top: 100px;
+        }
+
+        footer p {
+            color: #b0b0b0;
+        }
+
+        /* Scroll Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .subtitle { font-size: 1.2em; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>ANASS BOUABBOUS</h1>
+            <p class="subtitle">🛡️ Cybersecurity Student | SOC Analyst in Training</p>
+            <p class="hero-description">
+                Passionate about network defense, ethical hacking, and security automation. 
+                I build hands-on labs to simulate attacks, analyze logs, and implement automated responses. 
+                My goal is to become a SOC Analyst / Security Engineer specialized in detection and response.
+            </p>
+            <div class="contact-links">
+                <a href="mailto:anassbouabbous@gmail.com" class="contact-btn">📧 Email</a>
+                <a href="https://www.linkedin.com/in/anass-bouabbous-5068ba276/" target="_blank" class="contact-btn">💼 LinkedIn</a>
+                <a href="https://github.com/BOUABBOUSANASS" target="_blank" class="contact-btn">💻 GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2 class="section-title">💼 Practical Cybersecurity Projects</h2>
+            <p style="text-align: center; color: #b0b0b0; max-width: 800px; margin: 0 auto 40px;">
+                Building realistic, end-to-end simulations involving attack, detection, and defense using 
+                Wazuh, Cisco GNS3, Kali Linux, and Microsoft Azure.
+            </p>
+
+            <div class="projects-grid">
+                <!-- Project 1: Wazuh SIEM -->
+                <div class="project-card">
+                    <div class="project-icon">🔍</div>
+                    <h3>SIEM with Wazuh — Real-Time Detection & Response</h3>
+                    <p><strong>Goal:</strong> Detect and automatically block brute-force attacks in real time.</p>
+                    <p><strong>Implementation:</strong> Built a comprehensive system that detects and mitigates attacks automatically using active response rules and iptables integration.</p>
+                    <p><strong>Result:</strong> Achieved automated threat mitigation with real-time log analysis and alert dashboards.</p>
+                    <div class="tech-tags">
+                        <span class="tag">Wazuh</span>
+                        <span class="tag">Ubuntu</span>
+                        <span class="tag">Kali Linux</span>
+                        <span class="tag">iptables</span>
+                        <span class="tag">Bash</span>
+                    </div>
+                </div>
+
+                <!-- Project 2: Red/Blue Team Lab -->
+                <div class="project-card">
+                    <div class="project-icon">⚔️</div>
+                    <h3>Red vs Blue Team Network Defense Simulation</h3>
+                    <p><strong>Environment:</strong> Simulated enterprise network using GNS3 with Cisco routers, Ubuntu server, and Kali Linux.</p>
+                    <p><strong>Red Team:</strong> OSPF spoofing, brute-force attacks, MITM attacks.</p>
+                    <p><strong>Blue Team:</strong> Implemented AAA, RBAC, and Zone-Based Firewalling.</p>
+                    <p><strong>Result:</strong> Enhanced defense mechanisms and comprehensive network monitoring across the simulated environment.</p>
+                    <div class="tech-tags">
+                        <span class="tag">GNS3</span>
+                        <span class="tag">Cisco IOS</span>
+                        <span class="tag">Ubuntu</span>
+                        <span class="tag">Kali Linux</span>
+                        <span class="tag">OSPF</span>
+                    </div>
+                </div>
+
+                <!-- Project 3: Web App Security -->
+                <div class="project-card">
+                    <div class="project-icon">🌐</div>
+                    <h3>Web Application Attack & Defense</h3>
+                    <p><strong>Environment:</strong> DVWA and OWASP Juice Shop on Ubuntu server.</p>
+                    <p><strong>Exploited:</strong> XSS, SQL Injection, CSRF, Command Injection vulnerabilities.</p>
+                    <p><strong>Defenses:</strong> Input validation, mod_security WAF, Content Security Policy.</p>
+                    <p><strong>Result:</strong> Successfully demonstrated and mitigated common web vulnerabilities in a controlled environment.</p>
+                    <div class="tech-tags">
+                        <span class="tag">DVWA</span>
+                        <span class="tag">Juice Shop</span>
+                        <span class="tag">Burp Suite</span>
+                        <span class="tag">mod_security</span>
+                        <span class="tag">CSP</span>
+                    </div>
+                </div>
+
+                <!-- Project 4: Azure Health App -->
+                <div class="project-card">
+                    <div class="project-icon">☁️</div>
+                    <h3>Cloud-Based Health App Using Azure AI & LLM</h3>
+                    <p><strong>Architecture:</strong> Leveraged 5 Azure services - Web App, SQL Database, Blob Storage, Azure AI, and Azure OpenAI.</p>
+                    <p><strong>Features:</strong> Image-based gender recognition and personalized diet recommendations using AI/ML.</p>
+                    <p><strong>Result:</strong> Deployed a functional, scalable web application integrating cloud AI services.</p>
+                    <div class="tech-tags">
+                        <span class="tag">Azure</span>
+                        <span class="tag">Azure AI</span>
+                        <span class="tag">SQL Database</span>
+                        <span class="tag">Blob Storage</span>
+                        <span class="tag">LLM</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2 class="section-title">🧰 Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>🔒 Security Tools</h3>
+                    <div class="skill-item">Wazuh SIEM</div>
+                    <div class="skill-item">Burp Suite</div>
+                    <div class="skill-item">Wireshark</div>
+                    <div class="skill-item">Nmap</div>
+                    <div class="skill-item">Metasploit</div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🌐 Networking</h3>
+                    <div class="skill-item">Cisco IOS</div>
+                    <div class="skill-item">GNS3</div>
+                    <div class="skill-item">AAA & RBAC</div>
+                    <div class="skill-item">VPN Configuration</div>
+                    <div class="skill-item">Syslog & NTP</div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>💻 Programming</h3>
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">Bash Scripting</div>
+                    <div class="skill-item">C</div>
+                    <div class="skill-item">Automation Scripts</div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>☁️ Cloud & Systems</h3>
+                    <div class="skill-item">Microsoft Azure</div>
+                    <div class="skill-item">Ubuntu Linux</div>
+                    <div class="skill-item">Kali Linux</div>
+                    <div class="skill-item">Windows 10</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Goals Section -->
+        <section id="education">
+            <h2 class="section-title">🎓 Education & Career Goals</h2>
+            <div class="about-content">
+                <p>
+                    Currently pursuing studies in <strong>Cybersecurity</strong> with a focus on 
+                    Network Security, Web Application Security, and Incident Response.
+                </p>
+                <p>
+                    My specialization areas include SIEM implementation, threat detection, 
+                    network defense architecture, and security automation.
+                </p>
+                <p style="color: #00ff9d; font-weight: 600; font-size: 1.2em; margin-top: 30px;">
+                    🎯 Career Goal: To join a SOC or security operations role where I can contribute 
+                    to detection, response, and automation initiatives.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="section-title">📫 Let's Connect</h2>
+            <div class="about-content">
+                <p style="font-size: 1.2em;">
+                    Thank you for visiting my portfolio. I'm always open to collaborations, 
+                    learning opportunities, and professional growth in cybersecurity.
+                </p>
+                <div class="contact-links" style="margin-top: 30px;">
+                    <a href="mailto:anassbouabbous@gmail.com" class="contact-btn">📧 anassbouabbous@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/anass-bouabbous-5068ba276/" target="_blank" class="contact-btn">💼 LinkedIn Profile</a>
+                    <a href="https://github.com/BOUABBOUSANASS" target="_blank" class="contact-btn">💻 GitHub Portfolio</a>
+                </div>
+                <p style="margin-top: 30px; color: #b0b0b0;">
+                    📍 Based in Morocco 🇲🇦
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Anass Bouabbous. All rights reserved.</p>
+        <p style="margin-top: 10px; color: #00ff9d;">🔐 Securing the Digital Future</p>
+    </footer>
+</body>
+</html>
