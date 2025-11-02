@@ -160,11 +160,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 💡 Future Enhancements
 
-- [ ] Add blog section for cybersecurity writeups
-- [ ] Integrate with GitHub API to show live projects
-- [ ] Add dark/light theme toggle
-- [ ] Include CTF achievements and certifications
-- [ ] Add contact form with backend integration
+- [ ] Add certification badges (CEH, CompTIA Security+, OSCP)
+- [ ] Create dedicated lab documentation pages
+- [ ] Integrate penetration testing writeups and CTF solutions
+- [ ] Add a security blog section for vulnerability research
+- [ ] Implement interactive network topology diagrams
+- [ ] Include video demonstrations of projects
+- [ ] Add downloadable CVE analysis reports
+- [ ] Create a timeline of my cybersecurity journey
 
 ---
 
